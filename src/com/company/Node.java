@@ -1,8 +1,8 @@
 package com.company;
 
 public class Node {
-     Object data;
-     Node next;
+    Object data;
+    Node next;
 
 
     public Object getData() {
@@ -16,7 +16,8 @@ public class Node {
     public Node getNextNode() {
         return next;
     }
-    public void setNextNode(Node next){
+
+    public void setNextNode(Node next) {
         this.next = next;
     }
 

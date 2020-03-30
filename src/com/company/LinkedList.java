@@ -5,33 +5,41 @@ public class LinkedList {
 
     Node firstNode;
     Node currentNode;
+    int size = -1;
 
-    public LinkedList(){
-        this.firstNode= new Node();
+    public LinkedList() {
+        this.firstNode = new Node();
         currentNode = firstNode;
     }
 
     public Object getNodeValue(int nodePosition) {
         int currentPosition = 0;
-        if(currentNode.getNextNode() != null) {
-            currentNode = currentNode.getNextNode();
-            if (currentPosition-1 == nodePosition)
-                return currentNode.getNextNode().getData();
+        Iterator iterator = new Iterator(this);
+        if (nodePosition > size) {
+           throw new IndexOutOfBoundsException("Exception: за границей списка");
+        }
+        while (currentPosition != nodePosition) {
+            currentNode = firstNode.getNextNode();
+            firstNode = currentNode;
+            if (!iterator.hasNext())
+                return null;
             currentPosition++;
 
         }
-        return null;
+        return iterator.getNextValue();
     }
 
 
-    public void addNode(Object data) {
+    public Object addNode(Object data) {
         Node addedNode = new Node();
-        addedNode.setData(data);
-        if(currentNode.getNextNode() == null) {
+        Iterator iterator = new Iterator(this);
+        if (!iterator.hasNext()) {
             currentNode.setNextNode(addedNode);
+            addedNode.setData(data);
             currentNode = addedNode;
+            size++;
         }
-
+    return currentNode.getData();
     }
 
 

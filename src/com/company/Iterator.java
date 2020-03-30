@@ -1,14 +1,20 @@
 package com.company;
 
 public class Iterator {
+    LinkedList list;
 
-    Node currentNode;
+
+    public Iterator(LinkedList list){
+        this.list = list;
+    }
+
+
 
     public boolean hasNext(){
-        return (currentNode.getNextNode() != null);
+        return (list.currentNode.getNextNode() != null);
     }
 
     public Object getNextValue(){
-        return currentNode.getNextNode().getData();
+        return list.firstNode.getNextNode().getData();
     }
 }
