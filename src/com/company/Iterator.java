@@ -14,7 +14,6 @@ public class Iterator {
         return (list.currentNode.getNextNode() != null);
     }
 
-    public Object getNextValue(){
-        return list.firstNode.getNextNode().getData();
-    }
+
+
 }
